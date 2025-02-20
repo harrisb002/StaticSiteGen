@@ -23,12 +23,12 @@ class HTMLNode:
             return ""
         html_props = ""
         for key, value in self.props.items():
-            html_props += f" {key}={value}"
+            html_props += f' {key}="{value}"'
         return html_props
 
     # Overriding print implementation
     def __repr__(self):
-        return f"HTMLNode(tag={self.tag}, value={self.value}, children={self.children}, props={self.props})"
+        return f"HTMLNode({self.tag}, {self.value}, children: {self.children}, {self.props})"
 
 
 class LeafNode(HTMLNode):
