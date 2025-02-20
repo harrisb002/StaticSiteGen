@@ -11,18 +11,16 @@ class HTMLNode:
         )
 
     # Children class shall overide this method
-    def to_html(self):
-        raise NotImplementedError()
+    # def to_html(self):
+    #     raise NotImplementedError()
 
     # Returns the string that represents the HTML Attributes of the Node
     def props_to_html(self):
         html_props = ""
-        for key, value in self.props:
-            html_props += f" {key} {value}"
+        for key, value in self.props.items():
+            html_props += f" {key}={value}"
         return html_props
 
     # Overriding print implementation
     def __repr__(self):
-        return print(
-            f"Tag: {self.tag}\n Value: {self.value}\n Children: {self.children}\n Props: {self.props}"
-        )
+        return f"HTMLNode(tag={self.tag}, value={self.value}, children={self.children}, props={self.props})"
