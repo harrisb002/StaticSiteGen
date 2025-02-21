@@ -1,6 +1,3 @@
-from textnode import TextType
-
-
 # All HTMLNodes are assumed to have either a value or children
 # An HTMLNode without a tag will just render as raw text
 # An HTMLNode without props simply won't have any attributes
