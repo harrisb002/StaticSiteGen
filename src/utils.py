@@ -22,6 +22,7 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
         for i, part in enumerate(parts):
             if part or i % 2 == 1:  # Preserve empty text nodes
                 new_nodes.append(
+                    # Only odd is text_type
                     TextNode(part, text_type if i % 2 == 1 else TextType.NORMAL)
                 )
 
