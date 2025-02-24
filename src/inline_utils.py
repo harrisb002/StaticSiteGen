@@ -1,5 +1,5 @@
 from src.textnode import TextNode, TextType
-
+import re
 
 # Accepts an array of htmlnodes
 # Returns a new list of nodes, where any "text" type nodes are split based on type
@@ -27,3 +27,14 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
                 )
 
     return new_nodes
+
+
+def extract_markdown_images(text):
+    """Extracts image alt text and URLs from markdown."""
+    pattern = r"!\[(.*?)\]\((.*?)\)"
+    return re.findall(pattern, text)
+
+def extract_markdown_links(text):
+    """Extracts link text and URLs from markdown."""
+    pattern = r"\[(.*?)\]\((.*?)\)"
+    return re.findall(pattern, text)
