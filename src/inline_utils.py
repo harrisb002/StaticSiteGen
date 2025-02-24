@@ -102,3 +102,14 @@ def split_nodes_link(old_nodes):
                 split_text_nodes.append(TextNode(link_text, TextType.LINK, url))
 
     return split_text_nodes
+
+
+# Converts a raw string of markdown-flavored text into a list of TextNode objects.
+def text_to_textnodes(text):
+    nodes = [TextNode(text, TextType.NORMAL)]
+    nodes = split_nodes_delimiter(nodes, "**", TextType.BOLD)
+    nodes = split_nodes_delimiter(nodes, "*", TextType.ITALIC)
+    nodes = split_nodes_delimiter(nodes, "`", TextType.CODE)
+    nodes = split_nodes_image(nodes)
+    nodes = split_nodes_link(nodes)
+    return nodes
