@@ -1,6 +1,6 @@
 import os
 import shutil
-from web import copy_static, generate_page
+from web import copy_static, generate_pages_recursive
 
 
 def main():

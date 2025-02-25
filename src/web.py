@@ -4,6 +4,39 @@ import re
 from markdown_blocks import markdown_to_html_node
 
 
+def generate_pages_recursive(
+    dir_path_content: str, template_path: str, dest_dir_path: str
+):
+    """
+    Recursively generates HTML pages from markdown files in the content directory.
+
+    - Crawls every entry in `dir_path_content`
+    - Converts markdown files into HTML using `template_path`
+    - Writes the output to `dest_dir_path`, preserving the directory structure.
+
+    :param dir_path_content: Path to the content directory containing markdown files.
+    :param template_path: Path to the HTML template file.
+    :param dest_dir_path: Path to the destination directory where HTML files will be written.
+    """
+    for root, _, files in os.walk(dir_path_content):
+        # Determine the relative path from the content directory
+        relative_path = os.path.relpath(root, dir_path_content)
+        dest_path = os.path.join(dest_dir_path, relative_path)
+
+        # Ensure the destination directory exists
+        os.makedirs(dest_path, exist_ok=True)
+
+        for file in files:
+            if file.endswith(".md"):
+                markdown_file = os.path.join(root, file)
+                html_file = os.path.join(dest_path, file.replace(".md", ".html"))
+
+                print(
+                    f"Generating {html_file} from {markdown_file} using {template_path}"
+                )
+                generate_page(markdown_file, template_path, html_file)
+
+
 def generate_page(from_path: str, template_path: str, dest_path: str):
     """
     Generates an HTML page from a markdown file using a template.
