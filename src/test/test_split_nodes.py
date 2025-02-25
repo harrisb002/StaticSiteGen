@@ -1,5 +1,5 @@
 import unittest
-from src.textnode import TextNode, TextType
+from text_node import TextNode, TextType
 from src.inline_utils import split_nodes_image, split_nodes_link
 
 

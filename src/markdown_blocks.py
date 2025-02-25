@@ -1,9 +1,8 @@
-import unittest
 import re
-from src.htmlnode import ParentNode
-from src.textnode import TextNode, text_node_to_html_node
-from src.splitblocks import markdown_to_blocks, BlockType, block_to_block_type
-from src.inline_utils import text_to_textnodes
+from html_node import ParentNode
+from text_node import TextNode, text_node_to_html_node
+from split_blocks import markdown_to_blocks, BlockType, block_to_block_type
+from inline_utils import text_to_textnodes
 
 
 def markdown_to_html_node(markdown):

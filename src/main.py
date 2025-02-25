@@ -1,4 +1,5 @@
 import os
+import shutil
 from web import copy_static, generate_page
 
 

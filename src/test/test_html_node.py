@@ -1,6 +1,6 @@
 import unittest
 
-from src.htmlnode import HTMLNode, ParentNode, LeafNode
+from html_node import HTMLNode, ParentNode, LeafNode
 
 
 # tag=None, value=None, children=None, props=None

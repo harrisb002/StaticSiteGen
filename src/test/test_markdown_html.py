@@ -1,5 +1,5 @@
 import unittest
-from src.textnode import TextNode, TextType
+from text_node import TextNode, TextType
 from src.markdown_blocks import markdown_to_html_node
 
 

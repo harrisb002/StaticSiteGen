@@ -1,5 +1,5 @@
 import unittest
-from src.textnode import TextNode, TextType
+from text_node import TextNode, TextType
 from src.inline_utils import extract_markdown_images, extract_markdown_links
 
 
