@@ -5,42 +5,7 @@
 #     extract_markdown_links,
 #     extract_markdown_images,
 # )
-
-import os
-import shutil
-
-
-def copy_static(source: str, destination: str) -> None:
-    """
-    Recursively copies all contents from the source directory to the destination directory.
-    It first deletes all existing contents in the destination to ensure a clean copy.
-
-    :param source: Path to the source directory.
-    :param destination: Path to the destination directory.
-    """
-    # Ensure destination is clean
-    if os.path.exists(destination):
-        shutil.rmtree(destination)
-        print(f"Deleted existing directory: {destination}")
-
-    # Recreate destination directory
-    os.mkdir(destination)
-    print(f"Created directory: {destination}")
-
-    # Recursively copy contents
-    for item in os.listdir(source):
-        source_path = os.path.join(source, item)
-        destination_path = os.path.join(destination, item)
-
-        if os.path.isfile(source_path):
-            shutil.copy(source_path, destination_path)
-            print(f"Copied file: {source_path} -> {destination_path}")
-        elif os.path.isdir(source_path):
-            os.mkdir(destination_path)
-            print(f"Created directory: {destination_path}")
-            copy_static(
-                source_path, destination_path
-            )  # Recursively copy subdirectories
+from web import copy_static
 
 
 def main():
