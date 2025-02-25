@@ -1,15 +1,15 @@
 # Tolkien Fan Club
 
-**I like Tolkien**. Read my [first post here](/majesty)
+**I like Tolkien**. Read my [first post here](/majesty) (sorry the link doesn't work yet)
 
 > All that is gold does not glitter
 
 ## Reasons I like Tolkien
 
-- You can spend years studying the legendarium and still not understand its depths
-- It can be enjoyed by children and adults alike
-- Disney _didn't ruin it_
-- It created an entirely new genre of fantasy
+* You can spend years studying the legendarium and still not understand its depths
+* It can be enjoyed by children and adults alike
+* Disney *didn't ruin it*
+* It created an entirely new genre of fantasy
 
 ## My favorite characters (in order)
 
