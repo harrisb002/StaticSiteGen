@@ -1,36 +1,35 @@
-# from textnode import TextNode, TextType
-# from htmlnode import HTMLNode, LeafNode
-# from inline_utils import (
-#     split_nodes_delimiter,
-#     extract_markdown_links,
-#     extract_markdown_images,
-# )
-from web import copy_static
+import os
+from web import copy_static, generate_page
 
 
 def main():
-    # node = TextNode("This is a text node", "bold", "https://www.boot.dev")
-    # print(node)
+    public_dir = "public"
+    static_dir = "static"
+    markdown_file = "content/index.md"
+    template_file = "template.html"
+    output_file = os.path.join(public_dir, "index.html")
 
-    # text_node = TextNode("Click me", "link", "https://www.boot.dev")
-    # html_node = HTMLNode(
-    #     tag="a",
-    #     value=text_node.text,
-    #     props={"href": "https://www.google.com", "target": "_blank"},
-    # )
-    # print(html_node.props_to_html())
+    # Step 1: Delete anything in the public directory
+    print("Cleaning up the public directory...")
+    if os.path.exists(public_dir):
+        for filename in os.listdir(public_dir):
+            file_path = os.path.join(public_dir, filename)
+            try:
+                if os.path.isfile(file_path):
+                    os.unlink(file_path)
+                elif os.path.isdir(file_path):
+                    shutil.rmtree(file_path)
+            except Exception as e:
+                print(f"Failed to delete {file_path}. Reason: {e}")
 
-    # text_node = TextNode("Click me", "link", "https://www.boot.dev")
-    # text_node_to_html(text_node)
+    # Step 2: Copy all static files from static to public
+    print("Copying static files...")
+    copy_static(static_dir, public_dir)
 
-    # TestleafNode = LeafNode("p", "This is a paragraph of text.")
-    # TestleafNode2 = LeafNode("a", "Click me!", {"href": "https://www.google.com"})
+    # Step 3: Generate the page from content/index.md using template.html
+    print("Generating HTML page from markdown...")
+    generate_page(markdown_file, template_file, output_file)
 
-    # print(TestleafNode.to_html())  # <p>This is a paragraph of text.</p>
-    # print(TestleafNode2.to_html())  # <a href="https://www.google.com">Click me!</a>
-
-    print("Generating static site...")
-    copy_static("static", "public")
     print("Static site generation complete!")
 
 
